@@ -1,3 +1,5 @@
+"use client";
+
 import { NextResponse } from "next/server";
 import storesData from "@/data/stores.json";
 import type { Store } from "@/lib/types";
