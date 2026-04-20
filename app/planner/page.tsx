@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, lazy, Suspense } from "react";
+import { useState, Suspense } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+
+
 import {
   Plus,
   Trash2,
@@ -26,7 +29,7 @@ import { CartProvider } from "@/lib/cart-context";
 import type { TransportType } from "@/lib/types";
 
 // Lazy load map component
-const RouteMap = lazy(() => import("@/components/route-map").then(mod => ({ default: mod.RouteMap })));
+const RouteMap = dynamic(() => import("@/components/route-map").then(mod => ({ default: mod.RouteMap })), { ssr: false });
 
 interface Destination {
   id: string;
